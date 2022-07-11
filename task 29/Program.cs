@@ -1,7 +1,7 @@
 ﻿//Напишите программу, которая задаёт массив из 8 элементов,
 // заполненный псевдослучайными числами и выводит их на экран.
 //1, 2, 5, 7, 19, 6, 1, 33 -> [1, 2, 5, 7, 19, 6, 1, 33]
-// Не понимаю в чём проблема
+
 
 
 int[] FillArrRandom(int size)
@@ -12,7 +12,7 @@ int[] FillArrRandom(int size)
 
     for (int i = 0; i < arr.Length; i++)
     {
-        arr[i] = new Random().Next();
+        arr[i] = new Random().Next(0,100);
     }
     return arr;
 }
@@ -20,11 +20,14 @@ int[] FillArrRandom(int size)
 
 void PrintArr(int[] arr)
 {
+    Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
     {
-        Console.Write($"[{arr[i]}");
+        if (i == arr.Length - 1) Console.Write($"{arr[i]}");
+        else
+        Console.Write($"{arr[i]},");
     }
-    Console.WriteLine("]");
+    Console.Write("]");
 }
 
 int[] result = FillArrRandom(8);
